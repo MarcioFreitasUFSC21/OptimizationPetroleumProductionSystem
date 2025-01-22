@@ -1,0 +1,36 @@
+@startuml
+left to right direction
+actor " OPPS_Transaction" as oppstrs
+rectangle OPPS{
+    usecase "Show the welcome message" as UC1
+    usecase "Show the error messages" as UC2
+    usecase "Open the  specific folder directoy to charge the input data" as UC3
+    usecase "Charge the input data" as UC4
+    usecase "Realize the data cleaning and pre-processing procedure" as UC5
+    usecase "imputation of missing data" as UC6
+    usecase "Realize the deletion of repeated data" as UC7
+    usecase "Realize the exploratory data analysis" as UC8
+    usecase "Show of the exploratory data analysis results" as UC9
+    usecase "Save the the exploratory data analysis results" as UC10
+    usecase "Realize the optimization of the recovery factor" as UC11
+    usecase "Realize the data visualization procedure" as UC12
+    usecase "Export the optimization data results to specific extension report" as UC13
+    usecase "Exception Handling " as UC14 
+}
+oppstrs --> UC1
+oppstrs --> UC2
+oppstrs --> UC3
+oppstrs --> UC4
+oppstrs --> UC5
+oppstrs --> UC6
+oppstrs --> UC7
+oppstrs --> UC8
+oppstrs --> UC9
+oppstrs --> UC10
+oppstrs --> UC11
+oppstrs --> UC12
+oppstrs --> UC13
+oppstrs --> UC14
+(UC2) .> (UC14): extends
+
+@enduml
