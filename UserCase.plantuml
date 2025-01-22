@@ -1,0 +1,23 @@
+@startuml
+
+left to right direction
+actor "Human_User" as h
+rectangle OPPS {
+    usecase "Initialize the system" as UC1
+    usecase "Realize the data charge by allowed data extension type" as UC2
+    usecase "Request the data cleaning and preprocessing procedure" as UC3
+    usecase "Request the  exploratory analysis procedure" as UC4
+    usecase "Request the optimization procedure" as UC5
+    usecase  "Request the save optimization file procedure" as UC6
+    usecase "Request the data visualization procedure" as UC7
+    usecase " Choose the extension data report export procedure" as UC8
+}
+    h --> UC1
+    h --> UC2
+    h --> UC3
+    h --> UC4
+    h --> UC5
+    h --> UC6
+    h --> UC7
+    h --> UC8
+@enduml
