@@ -1,0 +1,28 @@
+@startuml
+class  MainOPPS 
+class  FileCharger
+class  Screen
+class  DataAnalyzer
+class  Mouser
+class  DataOptimization
+class  DataFileGenerator
+abstract class Transaction
+class  DataVisProcedure
+class  OptimizationProcedure
+class  DataAnalysisProcedure
+class  FileExportProcedure
+
+
+MainOPPS *-- FileCharger
+MainOPPS *-- Screen
+MainOPPS *-- Mouser
+MainOPPS *-- DataFileGenerator
+MainOPPS *-- DataAnalyzer
+MainOPPS *-- DataOptimization
+MainOPPS --> Transaction: "executes"
+Transaction <|-- FileExportProcedure
+Transaction <|-- DataAnalysisProcedure
+Transaction <|-- OptimizationProcedure
+Transaction <|-- DataVisProcedure
+Transaction --> Screen: "shows messages and data visualization"
+@enduml
