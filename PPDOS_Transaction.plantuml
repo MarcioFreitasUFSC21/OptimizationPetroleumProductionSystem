@@ -1,7 +1,7 @@
 @startuml
 left to right direction
-actor " OPPS_Transaction" as oppstrs
-rectangle OPPS{
+actor " PPDOS_Transaction" as PPDOSproc
+rectangle PPDOS{
     usecase "Show the welcome message" as UC1
     usecase "Show the error messages" as UC2
     usecase "Open the  specific folder directoy to charge the input data" as UC3
@@ -17,20 +17,20 @@ rectangle OPPS{
     usecase "Export the optimization data results to specific extension report" as UC13
     usecase "Exception Handling " as UC14 
 }
-oppstrs --> UC1
-oppstrs --> UC2
-oppstrs --> UC3
-oppstrs --> UC4
-oppstrs --> UC5
-oppstrs --> UC6
-oppstrs --> UC7
-oppstrs --> UC8
-oppstrs --> UC9
-oppstrs --> UC10
-oppstrs --> UC11
-oppstrs --> UC12
-oppstrs --> UC13
-oppstrs --> UC14
+PPDOSproc --> UC1
+PPDOSproc --> UC2
+PPDOSproc --> UC3
+PPDOSproc--> UC4
+PPDOSproc --> UC5
+PPDOSproc --> UC6
+PPDOSproc --> UC7
+PPDOSproc --> UC8
+PPDOSproc --> UC9
+PPDOSproc --> UC10
+PPDOSproc--> UC11
+PPDOSproc --> UC12
+PPDOSproc --> UC13
+PPDOSproc --> UC14
 (UC2) .> (UC14): extends
 
 @enduml

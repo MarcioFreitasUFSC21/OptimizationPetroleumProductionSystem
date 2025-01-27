@@ -2,7 +2,7 @@
 
 left to right direction
 actor "Human_User" as h
-rectangle OPPS {
+rectangle PPDOS {
     usecase "Initialize the system" as UC1
     usecase "Realize the data charge by allowed data extension type" as UC2
     usecase "Request the data cleaning and preprocessing procedure" as UC3

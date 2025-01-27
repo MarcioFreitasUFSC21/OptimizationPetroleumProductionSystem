@@ -1,0 +1,83 @@
+@startuml
+class Screen{
++void Screen(): construtor
++void showMessage():
+}
+class PPDOS{
+    +void PPDOS(): construtor
+    +void inicializeSystem()
+    +void makeOpenDirectoryFile()
+    +void makeChargeDataFile()
+    +void makeCombineDataFile()
+    +void makeDataClean()
+    +void makeDataExploratoryAnalysis()
+    +void makeDataViz()
+    +void startResultExport()   
+    +void showMessage()
+}
+class MainPPDOS{
+    +void MainPPDOS(): construtor
+    +void activatePPDOS()    
+}
+abstract class Transaction{
+    +void execute()
+    +void concludeOperation()
+}
+class MakeOpenDirectory{
+    +void MakeOpenDirectory(): construtor
+    +void execute()
+   
+}
+class MakeFileCharge{
+    +void MakeFileCharge(): construtor
+    +void execute()
+    
+}
+class MakeFileCombiner{
+    +void MakeFileCombiner(): construtor
+    +void execute()
+ 
+}
+
+class MakeDataClean{
+    +void MakeDataClean(): construtor
+    +void execute()
+   
+}
+
+class MakeExploratoryAnalysis{
+    +void MakeExploratoryAnalysis(): construtor
+    +void execute()
+   
+}
+class MakeDataViz{
+    +void MakeDataViz(): construtor
+    +void execute()
+    
+}
+class MakeDataOptimization{
+    -RGO
+    -STO
+    -skin
+    -RecoveryFactor
+    +void MakeDataOptimizationz(): construtor
+    +void execute()
+   
+}
+
+class MakeOpenFolder{
+    +void MakeOpenFolder(): construtor
+    +void execute()
+    
+}
+class MakeFileExport{
+    +void MakeFileExport(): construtor
+    +void execute()
+  
+}
+
+class Mouser{
+    +Mouser(): construtor
+    +void sendInput()
+}
+@enduml
