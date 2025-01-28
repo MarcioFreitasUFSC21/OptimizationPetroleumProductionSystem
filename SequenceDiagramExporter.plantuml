@@ -15,7 +15,7 @@ alt successful case in data export
     MakeDataExport --> Foo3:concludeOperation()
     destroy MakeDataExport
     Foo3 -> Screen: showMessage() 
-    Screen --> Foo1: success data export message
+    Screen --> Foo1: success data export message and thanks for use the PPDOS
     destroy Screen
 else failure of data export
     MakeDataExport -> Exception: failure
