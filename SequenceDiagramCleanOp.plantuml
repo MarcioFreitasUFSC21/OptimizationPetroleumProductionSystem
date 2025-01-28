@@ -1,0 +1,30 @@
+@startuml
+actor User as Foo1
+boundary PPDOSMain as Foo2
+control PPDOS as Foo3
+Foo3 -> Screen: showMessage(): show message to press data cleaning button
+Screen --> Foo1: press data cleaning button
+destroy Screen
+Foo1 -> Mouser: press data cleaning button
+Mouser -> Foo2: sendImput()
+destroy Mouser
+Foo2 -> Foo3: processing
+alt successful case in  data cleaning
+    Foo3 -> Transaction: makeDataCleaning()
+    Transaction -> MakeDataCleaning: execute()
+    MakeDataCleaning --> Foo3:concludeOperation()
+    destroy MakeDataCleaning
+    Foo3 -> Screen: showMessage() 
+    Screen --> Foo1: success data cleaning message
+    destroy Screen
+else failure of data cleaning
+    MakeDataCleaning -> Exception: failure
+    break Exception 
+        Exception  --> Foo3: Exception Handling 
+        destroy Exception
+    end 
+    Foo3 -> Screen: showMessage()
+    Screen --> Foo1: Error message in data cleaning
+    destroy Screen
+end
+@enduml

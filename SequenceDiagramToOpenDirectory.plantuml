@@ -1,0 +1,30 @@
+@startuml
+actor User as Foo1
+boundary PPDOSMain as Foo2
+control PPDOS as Foo3
+Foo3 -> Screen: showMessage(): show message to press open a folder button
+Screen --> Foo1: press open a folder button
+destroy Screen
+Foo1 -> Mouser: press open folder button
+Mouser -> Foo2: sendImput()
+destroy Mouser
+Foo2 -> Foo3: processing
+alt successful case in open folder diretory 
+    Foo3 -> Transaction: openDirectoryFolder()
+    Transaction -> MakeOpenFolder: execute()
+    MakeOpenFolder --> Foo3:concludeOperation()
+    destroy MakeOpenFolder
+    Foo3 -> Screen: showMessage() 
+    Screen --> Foo1: success message open folder directory 
+    destroy Screen
+else failure of open folder directory
+    MakeOpenFolder -> Exception: failure
+    break Exception 
+        Exception  --> Foo3: Exception Handling 
+        destroy Exception
+    end 
+    Foo3 -> Screen: showMessage()
+    Screen --> Foo1: Error message in open folder directory
+    destroy Screen
+end
+@enduml

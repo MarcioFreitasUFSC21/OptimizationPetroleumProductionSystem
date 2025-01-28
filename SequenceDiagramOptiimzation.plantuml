@@ -1,0 +1,30 @@
+@startuml
+actor User as Foo1
+boundary PPDOSMain as Foo2
+control PPDOS as Foo3
+Foo3 -> Screen: showMessage(): show message to press data optimization button
+Screen --> Foo1: press data optimization button
+destroy Screen
+Foo1 -> Mouser: press data optimization button
+Mouser -> Foo2: sendImput()
+destroy Mouser
+Foo2 -> Foo3: processing
+alt successful case in data optimization
+    Foo3 -> Transaction: makeDataOptimization()
+    Transaction -> MakeDataOptimization: execute()
+    MakeDataOptimization --> Foo3:concludeOperation()
+    destroy MakeDataOptimization
+    Foo3 -> Screen: showMessage() 
+    Screen --> Foo1: success data optimization message
+    destroy Screen
+else failure of data optimization
+    MakeDataOptimization -> Exception: failure
+    destroy MakeDataOptimization
+    break Exception 
+        Exception  --> Foo3: Exception Handling 
+    end 
+    Foo3 -> Screen: showMessage()
+    Screen --> Foo1: Error message in data optimization
+    destroy Screen
+end
+@enduml

@@ -1,0 +1,31 @@
+@startuml
+actor User as Foo1
+boundary PPDOSMain as Foo2
+control PPDOS as Foo3
+Foo3 -> Screen: showMessage(): show message to press data file combine button
+Screen --> Foo1: press data file combine button
+destroy Screen
+Foo1 -> Mouser: press data file combine button
+Mouser -> Foo2: sendImput()
+destroy Mouser
+Foo2 -> Foo3: processing
+alt successful case in  data file combination
+    Foo3 -> Transaction: combineDataFile()
+    Transaction -> MakeFileCharger: execute()
+    MakeFileCharger --> Foo3:concludeOperation()
+    destroy MakeFileCharger
+    Foo3 -> Screen: showMessage() 
+    Screen --> Foo1: success data file combination message
+    destroy Screen
+else failure of data file combination
+    MakeFileCharger -> Exception: failure
+    destroy MakeFileCharger
+    break Exception 
+        Exception  --> Foo3: Exception Handling 
+        destroy Exception
+    end 
+    Foo3 -> Screen: showMessage()
+    Screen --> Foo1: Error message in data file combination
+    destroy Screen
+end
+@enduml

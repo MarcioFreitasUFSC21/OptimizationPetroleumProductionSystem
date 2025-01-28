@@ -1,0 +1,30 @@
+@startuml
+actor User as Foo1
+boundary PPDOSMain as Foo2
+control PPDOS as Foo3
+Foo3 -> Screen: showMessage(): show message to press data export button
+Screen --> Foo1: press data export button
+destroy Screen
+Foo1 -> Mouser: press data export button
+Mouser -> Foo2: sendImput()
+destroy Mouser
+Foo2 -> Foo3: processing
+alt successful case in data export
+    Foo3 -> Transaction: saveResulsToFolder()
+    Transaction -> MakeDataExport: execute()
+    MakeDataExport --> Foo3:concludeOperation()
+    destroy MakeDataExport
+    Foo3 -> Screen: showMessage() 
+    Screen --> Foo1: success data export message
+    destroy Screen
+else failure of data export
+    MakeDataExport -> Exception: failure
+    break Exception 
+        Exception  --> Foo3: Exception Handling 
+        destroy Exception
+    end 
+    Foo3 -> Screen: showMessage()
+    Screen --> Foo1: Error message in data export
+    destroy Screen
+end
+@enduml

@@ -1,0 +1,31 @@
+@startuml
+actor User as Foo1
+boundary PPDOSMain as Foo2
+control PPDOS as Foo3
+Foo3 -> Screen: showMessage(): show message to press data exploratory analysis button
+Screen --> Foo1: press data exploratory analysis button
+destroy Screen
+Foo1 -> Mouser: press data exploratory analysis button
+Mouser -> Foo2: sendImput()
+destroy Mouser
+Foo2 -> Foo3: processing
+alt successful case in data exploratory analysis
+    Foo3 -> Transaction: makeDataExpAnalysis()
+    Transaction -> MakeExpAnalysis: execute()
+    MakeExpAnalysis --> Foo3:concludeOperation()
+    destroy MakeExpAnalysis
+    Foo3 -> Screen: showMessage() 
+    Screen --> Foo1: success data exploratory analysis message
+    destroy Screen
+else failure of data exploratory analysis
+    MakeExpAnalysis -> Exception: failure
+    destroy MakeExpAnalysis
+    break Exception 
+        Exception  --> Foo3: Exception Handling 
+        destroy Exception
+    end 
+    Foo3 -> Screen: showMessage()
+    Screen --> Foo1: Error message in data exploratory analysis
+    destroy Screen
+end
+@enduml
