@@ -26,33 +26,39 @@ abstract class Transaction{
 class MakeOpenDirectory{
     +void MakeOpenDirectory(): construtor
     +void execute()
+    +void concludeOperation()
    
 }
 class MakeFileCharge{
     +void MakeFileCharge(): construtor
     +void execute()
+    +void concludeOperation()
     
 }
 class MakeFileCombiner{
     +void MakeFileCombiner(): construtor
     +void execute()
+    +void concludeOperation()
  
 }
 
 class MakeDataClean{
     +void MakeDataClean(): construtor
     +void execute()
+    +void concludeOperation()
    
 }
 
 class MakeExploratoryAnalysis{
     +void MakeExploratoryAnalysis(): construtor
     +void execute()
+    +void concludeOperation()
    
 }
 class MakeDataViz{
     +void MakeDataViz(): construtor
     +void execute()
+    +void concludeOperation()
     
 }
 class MakeDataOptimization{
@@ -62,17 +68,20 @@ class MakeDataOptimization{
     -RecoveryFactor
     +void MakeDataOptimizationz(): construtor
     +void execute()
+    +void concludeOperation()
    
 }
 
 class MakeOpenFolder{
     +void MakeOpenFolder(): construtor
     +void execute()
+    +void concludeOperation()
     
 }
 class MakeFileExport{
     +void MakeFileExport(): construtor
     +void execute()
+    +void concludeOperation()
   
 }
 

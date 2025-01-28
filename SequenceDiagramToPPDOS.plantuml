@@ -1,0 +1,15 @@
+@startuml
+
+actor User as Foo1
+
+Foo1 -> Mouser: press a start button with mouse
+boundary PPDOSMain as Foo2
+Mouser -> Foo2: sendImput()
+control PPDOS as Foo3
+Foo2 -> Foo3: activatePPDOS()
+Foo2 -> Foo3: inicializeSystem()
+Foo3 -> Screen: showMessage()
+Screen --> Foo1: initialization, welcome  and the request to data file charge messages 
+
+ 
+@enduml
