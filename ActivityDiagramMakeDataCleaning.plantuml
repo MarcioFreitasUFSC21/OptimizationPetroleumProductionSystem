@@ -1,0 +1,26 @@
+@startuml
+start
+repeat
+if (Is data cleaning button active?) then (yes)
+    :show the data cleaning analysis initial message;
+    if () then (user cancelled the operation)
+        :ending process;
+    else (data cleaning analysis button pressed  by user)
+        :begin data cleaning operation;
+        :call the respective specific operation function;
+        if (Is there any problem?) then (yes)
+            :show error message;
+        else (no)
+            :show the successful concluded operation message;
+            :return the confirmation to PPDOS by conclude operation function;
+        endif
+        :ending process;
+    endif
+else (no)
+    :turn-off system;
+    :ending process;
+endif
+repeat while(Is there any user interacting with system?) is (yes)
+->(no);
+stop
+@enduml
